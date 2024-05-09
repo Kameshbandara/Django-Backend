@@ -1,0 +1,209 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <title>School Management System</title>
+    
+</head>
+<body>
+    <h1>School Management System</h1>
+    <br>
+    <br>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h6> SCHOOL</h6>
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>School</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for school in schools %}
+                            <tr>
+                                <td>{{ school.id }}</td>
+                                <td>{{ school.name }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col text-center">
+                <h6> CLASS</h6>
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Class</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for class in classes %}
+                            <tr>
+                                <td>{{ class.id }}</td>
+                                <td>{{ class.name }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col text-center">
+                <h6> ASSIGNMENT AREA</h6>
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Assessment Area</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for area in assessment_areas %}
+                            <tr>
+                                <td>{{ area.id }}</td>
+                                <td>{{ area.name }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col text-center">
+                <h6> STUDENT</h6>
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Fullname</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                            <tr>
+                                <td>{{ student.id }}</td>
+                                <td>{{ student.fullname }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col text-center">
+                <h6> ANSWER </h6>
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for answer in answers %}
+                            <tr>
+                                <td>{{ answer.id }}</td>
+                                <td>{{ answer.answer }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col text-center">
+                <h6> AWARD</h6>
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Award Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for award in awards %}
+                            <tr>
+                                <td>{{ award.id }}</td>
+                                <td>{{ award.name }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col text-center">
+                <h6> SUBJECT</h6>
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Subject</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for subject in subjects %}
+                            <tr>
+                                <td>{{ subject.id }}</td>
+                                <td>{{ subject.subject }}</td>
+                                <td>{{ subject.subject_score }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <h6 class ="smry">SUMMARY</h6>
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th>School</th>
+                <th>Sydney Participant</th>
+                <th>Syndey Percentile</th>
+                <th>Assessment Area</th>
+                <th>Award</th>
+                <th>Class</th>
+                <th>Correct Answer Percentage Per Class</th>
+                <th>Correct Answer</th>
+                <th>Student</th>
+                <th>Participant</th>
+                <th>Student Score</th>
+                <th>Category ID</th>
+                <th>Year Level Name</th>
+                <th>Answer ID</th>
+                <th>Correct Answer ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for summary in summaries %}
+                <tr>
+                    <td>{{ summary.school }}</td>
+                    <td>{{ summary.sydney_participant }}</td>
+                    <td>{{ summary.syndey_percentile }}</td>
+                    <td>{{ summary.assessment_area }}</td>
+                    <td>{{ summary.award }}</td>
+                    <td>{{ summary.class_name }}</td>
+                    <td>{{ summary.correct_answer_percentage_per_class }}</td>
+                    <td>{{ summary.correct_answer }}</td>
+                    <td>{{ summary.student }}</td>
+                    <td>{{ summary.participant }}</td>
+                    <td>{{ summary.student_score }}</td>
+                    <td>{{ summary.category_id }}</td>
+                    <td>{{ summary.year_level_name }}</td>
+                    <td>{{ summary.answer_id }}</td>
+                    <td>{{ summary.correct_answer_id }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
